@@ -1,0 +1,128 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                A M    L I G H T B O X    P L U G I N                *         
+ * A simple lightbox plugin that programmatically adds a lightbox to   *
+ * the end of a web page's HTML by creating a modal with a dynamically *
+ * populated image gallery. Implementation requires only populating    *
+ * the image group name, such as a portfolio piece, the class of the   *
+ * preview / thumbnail image, the class of the "pages" / gallery, and  *
+ * the folder location for the images.                                 *
+ *                                                                     *
+ *  @author Aaron Medlock                                              *
+ *  @version 0.5                                                       *
+ *                                                                     *
+ * NOTE: Some values, such as font color and background are provided   *
+ *       as samples and can be edited to conform to site design.       *
+ *                                                                     *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/* GENERAL CSS */
+.lightbox-close {
+	color: #FFFFFF;
+	font-size: 50px;
+	font-weight: bold;
+	position: absolute;
+	top: 1px;
+	right: 25px;
+}
+.lightbox-close:hover,
+.ightbox-close:focus {
+	color: #4c4c4c;
+	cursor: pointer;
+	text-decoration: none;
+}
+.lightbox-imgbox { 
+	height: 90vh;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	padding: 0 0 20px 0;
+	position: absolute;
+	top: 7.5%;
+	left: 0%;
+	white-space: nowrap;
+	width: 100%;
+} 
+.lightbox-imgbox img { 
+	display:inline-block;
+	margin: 0 5%;
+	max-height: 100%;
+	vertical-align:top;
+}
+.lightbox-imgbox img:first-child{
+	margin-left: 25%;
+    }
+.lightbox-next{
+	border-radius: 3px 0 0 3px;
+	right: 2.5%;
+}
+.lightbox-prev{
+	left: 2.5%;
+}
+.lightbox-prevtxt{
+	display: block;
+	font-size: 15pt;
+}
+.lightbox-prev,
+.lightbox-next {
+	border-radius: 0 3px 3px 0;
+	color: rgba(255,255,255, 0.7);
+	cursor: pointer;
+	font-size: 50pt;
+	font-weight: bold;
+	padding: 15px;
+	position: absolute;
+	top: 50%;
+	transition: 0.45 ease;
+	user-select: none;
+	-webkit-user-select: none;
+	width: auto;
+}
+#lightbox-container{
+	background: rgba(0,0,0, 0.8);
+	color: #FFFFFF;
+	margin: 0px;
+	padding: 0px;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 99;
+}
+#lightbox-wrapper { 
+	display: none;
+	margin: 0;
+	padding: 5vh 0px;
+	position: relative;
+	width: 100%; 
+   }
+
+
+/* RESPONSIVENESS MODE */
+
+/* PHONE */
+@media only screen and (min-width: 320px) and (max-width : 767px){
+	.lightbox-close {
+		line-height: 0.75;
+	}
+	.lightbox-imgbox { 
+		top: 11%;
+	} 
+}
+
+/* TABLET */
+@media only screen and (min-width: 768px) and (max-width : 1023px){
+	.lightbox-imgbox { 
+		top: 7.5%;
+	} 
+	.lightbox-imgbox img { 
+		vertical-align: middle;
+	}
+	.lightbox-imgbox img:first-child{
+		margin-left: 40%;
+    }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1024px) and (max-width : 1999px){
+}
